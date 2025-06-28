@@ -155,6 +155,23 @@
             color: var(--blush-medium);
         }
 
+        /* Instagram icon styling for top nav */
+        .nav-links a.instagram-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 500;
+        }
+
+        .nav-links a.instagram-link:hover {
+            transform: translateY(-2px);
+            -webkit-text-fill-color: var(--blush-medium);
+        }
+
         /* Mobile Menu Toggle */
         .menu-toggle {
             display: none;
@@ -470,6 +487,13 @@
             font-size: 1.2rem;
             color: var(--cream-warm);
             font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .artist-photo:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
         .artist-bio {
@@ -491,6 +515,36 @@
             background: rgba(168, 181, 160, 0.1);
             border-radius: 15px;
             border-left: 4px solid var(--rose-deep);
+            transition: all 0.3s ease;
+        }
+
+        .highlight:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .highlight-image {
+            width: 100%;
+            height: 120px;
+            background: var(--sage-medium);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: var(--cream-warm);
+            font-weight: 500;
+            font-family: 'Crimson Text', serif;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .highlight-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         .highlight h4 {
@@ -505,59 +559,74 @@
             font-size: 0.9rem;
         }
 
-        /* Philosophy Section with Tessellated Shapes */
-        .about {
+        /* Studio Section */
+        .studio {
             padding: 6rem 2rem;
             position: relative;
             z-index: 2;
         }
 
-        .philosophy-container {
+        .studio-container {
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .about-text {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 4rem auto;
+        /* Studio layout with description in center */
+        .studio-top-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .studio-description {
             font-size: 1.1rem;
             line-height: 1.8;
             color: var(--cream-muted);
+            padding: 0 1rem;
         }
 
-        .philosophy {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .concept {
+        .studio-image {
             background: rgba(168, 181, 160, 0.15);
             backdrop-filter: blur(10px);
             border: 2px solid rgba(244, 210, 215, 0.2);
-            border-radius: 20px;
-            padding: 2.5rem;
+            border-radius: 15px;
+            overflow: hidden;
             transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
         }
 
-        .concept:hover {
-            transform: translateY(-5px);
+        .studio-image:hover {
+            transform: translateY(-5px) scale(1.02);
             border-color: var(--blush-medium);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            z-index: 10;
         }
 
-        .concept h3 {
-            color: var(--pink-solid);
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
+        .studio-vertical {
+            height: 400px;
         }
 
-        .concept p {
-            color: var(--cream-muted);
-            line-height: 1.6;
+        .studio-horizontal {
+            height: 250px;
+            width: 100%;
+        }
+
+        .studio-photo {
+            width: 100%;
+            height: 100%;
+            background: var(--sage-medium);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: var(--cream-warm);
+            font-weight: 500;
+            font-family: 'Crimson Text', serif;
+            background-size: cover;
+            background-position: center;
         }
 
         /* Contact Section */
@@ -738,6 +807,33 @@
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
                 gap: 2rem;
             }
+
+            .studio-images {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .studio-collage {
+                height: 400px;
+            }
+
+            .studio-top-section {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .studio-description {
+                text-align: center;
+                padding: 0;
+            }
+
+            .studio-vertical {
+                height: 250px;
+            }
+
+            .studio-horizontal {
+                height: 200px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -868,22 +964,31 @@
                 padding: 1.2rem;
             }
             
-            /* Philosophy Section Mobile */
-            .about {
+            /* Studio Section Mobile */
+            .studio {
                 padding: 4rem 1rem;
             }
             
-            .philosophy {
+            .studio-top-section {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 1.5rem;
             }
             
-            .concept {
-                padding: 2rem;
+            .studio-description {
+                text-align: center;
+                padding: 0;
             }
             
-            .concept h3 {
-                font-size: 1.4rem;
+            .studio-vertical {
+                height: 200px;
+            }
+            
+            .studio-horizontal {
+                height: 180px;
+            }
+
+            .highlight-image {
+                height: 100px;
             }
             
             /* Contact Section Mobile */
@@ -935,8 +1040,16 @@
                 height: 200px;
             }
             
-            .concept {
-                padding: 1.5rem;
+            .studio-vertical {
+                height: 150px;
+            }
+            
+            .studio-horizontal {
+                height: 140px;
+            }
+
+            .highlight-image {
+                height: 80px;
             }
             
             .contact-item {
@@ -975,7 +1088,8 @@
             <ul id="nav-links" class="nav-links">
                 <li><a href="#gallery" onclick="closeMobileMenu()">Gallery</a></li>
                 <li><a href="#artist" onclick="closeMobileMenu()">Artist</a></li>
-                <li><a href="#about" onclick="closeMobileMenu()">Philosophy</a></li>
+                <li><a href="#studio" onclick="closeMobileMenu()">Studio</a></li>
+                <li><a href="https://instagram.com/your_handle" target="_blank" class="instagram-link" onclick="closeMobileMenu()">📷 Instagram</a></li>
                 <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
             </ul>
             <div class="menu-toggle" onclick="toggleMobileMenu()">
@@ -1073,7 +1187,7 @@
     <!-- Artist Section -->
     <section id="artist" class="artist">
         <div class="artist-content">
-            <div class="artist-photo" style="background-image: url('ArtistProfile.JPEG'); background-size: cover; background-position: center;"></div>
+            <div class="artist-photo" style="background-image: url('ArtistProfile.JPEG'); background-size: cover; background-position: center;" onclick="openLightbox('ArtistProfile.JPEG')"></div>
             <div>
                 <h2 class="section-title">The Artist</h2>
                 <p class="artist-bio">
@@ -1085,14 +1199,26 @@
                 
                 <div class="artist-highlights">
                     <div class="highlight">
+                        <div class="highlight-image" style="background-image: url('science-bg.jpg'); background-size: cover; background-position: center;" onclick="openLightbox('science-bg.jpg')">
+                            <!-- Replace with your lab/research image -->
+                            Research Lab
+                        </div>
                         <h4>Scientific Background</h4>
                         <p>PhD Candidate in Neuroscience at Emory University <br>Parkinson's Disease Research</p>
                     </div>
                     <div class="highlight">
+                        <div class="highlight-image" style="background-image: url('art-practice.jpg'); background-size: cover; background-position: center;" onclick="openLightbox('art-practice.jpg')">
+                            <!-- Replace with your art supplies/process image -->
+                            Art Supplies
+                        </div>
                         <h4>Artistic Practice</h4>
                         <p>Oil Pastels, Acrylic, Digital Art, Clay <br>Realism & Expressionism</p>
                     </div>
                     <div class="highlight">
+                        <div class="highlight-image" style="background-image: url('exhibition.jpg'); background-size: cover; background-position: center;" onclick="openLightbox('exhibition.jpg')">
+                            <!-- Replace with your exhibition image -->
+                            Exhibition
+                        </div>
                         <h4>Recent Exhibitions</h4>
                         <p>ENPRC Art Exhibit, 2024</p>
                     </div>
@@ -1101,23 +1227,46 @@
         </div>
     </section>
 
-    <!-- Philosophy Section with Tessellated Shapes -->
-    <section id="about" class="about">
-        <div class="philosophy-container">
-            <h2 class="section-title">Philosophy</h2>
-            <p class="about-text">
-                Through Voronoi tessellations, we witness the profound dialogue between mathematical precision and natural emergence. These patterns reveal how nature solves optimization problems through simple rules, creating complex beauty from fundamental principles.
+    <!-- Studio Section -->
+    <section id="studio" class="studio">
+        <div class="studio-container">
+            <h2 class="section-title">My Studio</h2>
+            <p class="studio-description">
+                Welcome to my creative sanctuary! This cozy corner of my world is where science meets art, where careful observation transforms into expressive brushstrokes. My studio is a reflection of my dual life as both researcher and artist—you'll find scientific journals nestled next to color palettes, and sketches of behavioral studies alongside oil pastel experiments. It's a space where I can lose myself in the therapeutic rhythm of creating, surrounded by the tools and inspiration that help me explore the fascinating patterns of behavior and emotion.
             </p>
             
-            <div class="philosophy">
-                <div class="concept concept-nomos">
-                    <h3>Nomos</h3>
-                    <p>The realm of scientific method, mathematical formalism, and human attempts to describe natural phenomena through equations and algorithms. Voronoi diagrams represent our systematic approach to understanding spatial organization.</p>
+            <div class="studio-images">
+                <div class="studio-image">
+                    <div class="studio-photo" style="background-image: url('studio1.jpg'); background-size: cover; background-position: center; cursor: pointer;" onclick="openLightbox('studio1.jpg')">
+                        <!-- Replace 'studio1.jpg' with your actual studio image -->
+                        Studio Overview
+                    </div>
+                    <div class="studio-caption">
+                        <h4>Creative Workspace</h4>
+                        <p>My main studio space where the magic happens - easel, supplies, and natural light for perfect color mixing.</p>
+                    </div>
                 </div>
                 
-                <div class="concept concept-physis">
-                    <h3>Physis</h3>
-                    <p>The natural world's inherent wisdom in organizing space and resources. From cellular arrangements to territorial boundaries, nature employs Voronoi-like principles without conscious calculation.</p>
+                <div class="studio-image">
+                    <div class="studio-photo" style="background-image: url('studio2.jpg'); background-size: cover; background-position: center; cursor: pointer;" onclick="openLightbox('studio2.jpg')">
+                        <!-- Replace 'studio2.jpg' with your actual studio image -->
+                        Art Supplies
+                    </div>
+                    <div class="studio-caption">
+                        <h4>Tools of the Trade</h4>
+                        <p>My beloved collection of oil pastels, brushes, and materials that bring each piece to life.</p>
+                    </div>
+                </div>
+                
+                <div class="studio-image">
+                    <div class="studio-photo" style="background-image: url('studio3.jpg'); background-size: cover; background-position: center; cursor: pointer;" onclick="openLightbox('studio3.jpg')">
+                        <!-- Replace 'studio3.jpg' with your actual studio image -->
+                        Inspiration Wall
+                    </div>
+                    <div class="studio-caption">
+                        <h4>Inspiration Corner</h4>
+                        <p>A curated collection of references, color studies, and works-in-progress that fuel my creativity.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1131,7 +1280,7 @@
             
             <div class="contact-info">
                 <a href="mailto:artist@nomosphysis.com" class="contact-item">Email</a>
-                <a href="#" class="contact-item">Research Gate</a>
+                <a href="#" class="contact-item">LinkedIn</a>
                 <a href="#" class="contact-item">Instagram</a>
             </div>
         </div>
