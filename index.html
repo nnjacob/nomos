@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title> NOMOS   Natalia Magnusson Art Portfolio </title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -153,6 +153,21 @@
 
         .nav-links a:hover {
             color: var(--blush-medium);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--cream-warm);
+            transition: all 0.3s ease;
         }
 
         /* Hero Section with Tessellated Title */
@@ -451,6 +466,88 @@
             z-index: 2;
         }
 
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            cursor: pointer;
+        }
+
+        .lightbox-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .lightbox img {
+            width: 100%;
+            height: auto;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: var(--cream-warm);
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10000;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+        }
+
+        /* Touch-friendly improvements */
+        @media (max-width: 768px) {
+            .close {
+                font-size: 30px;
+                width: 44px;
+                height: 44px;
+                top: 15px;
+                right: 15px;
+            }
+            
+            .lightbox-content {
+                max-width: 95%;
+                max-height: 85%;
+            }
+            
+            /* Ensure all interactive elements are touch-friendly */
+            .cta-button,
+            .contact-item,
+            .nav-links a {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .menu-toggle {
+                min-height: 44px;
+                min-width: 44px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 8px;
+            }
+        }
+
         /* Responsive Design */
         @media (max-width: 1024px) {
             .artist-content {
@@ -460,67 +557,216 @@
             .artist-photo {
                 height: 300px;
             }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+            }
         }
 
         @media (max-width: 768px) {
+            /* Mobile Navigation */
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(42, 51, 45, 0.98);
+                backdrop-filter: blur(15px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 2rem;
+                padding-top: 3rem;
+                transition: left 0.3s ease;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 1rem;
+            }
+            
+            /* Logo adjustments for mobile */
+            .logo-text {
+                font-size: 1.2rem;
+                display: none; /* Hide full text on very small screens */
+            }
+            
+            .logo-container {
+                gap: 0.5rem;
+            }
+            
+            /* Hero Section Mobile */
             .hero-content {
-                clip-path: polygon(5% 0%, 95% 0%, 100% 20%, 100% 80%, 95% 100%, 5% 100%, 0% 80%, 0% 20%);
-                padding: 2rem;
+                clip-path: polygon(5% 0%, 95% 0%, 100% 15%, 100% 85%, 95% 100%, 5% 100%, 0% 85%, 0% 15%);
+                padding: 2rem 1.5rem;
+                margin: 0 1rem;
             }
+            
             .hero h1 {
-                font-size: 2.8rem;
+                font-size: 2.2rem;
+                line-height: 1.1;
+                margin-bottom: 1rem;
             }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .cta-button {
+                padding: 0.8rem 2rem;
+                font-size: 0.9rem;
+            }
+            
+            /* Section Titles Mobile */
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 2.5rem;
+            }
+            
+            /* Gallery Mobile */
+            .gallery {
+                padding: 4rem 1rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .artwork-image {
+                height: 250px;
+            }
+            
+            .artwork-info {
+                padding: 1.5rem;
+            }
+            
+            .artwork-title {
+                font-size: 1.2rem;
+            }
+            
+            /* Artist Section Mobile */
+            .artist {
+                padding: 4rem 1rem;
+            }
+            
+            .artist-content {
+                gap: 2rem;
+            }
+            
+            .artist-photo {
+                height: 250px;
+            }
+            
+            .artist-bio {
+                font-size: 1rem;
+            }
+            
+            .artist-highlights {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .highlight {
+                padding: 1.2rem;
+            }
+            
+            /* Philosophy Section Mobile */
+            .about {
+                padding: 4rem 1rem;
+            }
+            
             .philosophy {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
+            
+            .concept {
+                padding: 2rem;
+            }
+            
+            .concept h3 {
+                font-size: 1.4rem;
+            }
+            
+            /* Contact Section Mobile */
+            .contact {
+                padding: 4rem 1rem;
+            }
+            
             .contact-info {
                 flex-direction: column;
                 gap: 1rem;
+                align-items: center;
             }
-            .artist-highlights {
-                grid-template-columns: 1fr;
+            
+            .contact-item {
+                width: 200px;
+                text-align: center;
+                clip-path: polygon(10% 0%, 90% 0%, 100% 25%, 100% 75%, 90% 100%, 10% 100%, 0% 75%, 0% 25%);
             }
         }
 
-        /* Lightbox Styles */
-.lightbox {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    cursor: pointer;
-}
-
-.lightbox-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 90%;
-    max-height: 90%;
-}
-
-.lightbox img {
-    width: 100%;
-    height: auto;
-}
-
-.close {
-    position: absolute;
-    top: 20px;
-    right: 35px;
-    color: var(--cream-warm);
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-        
+        @media (max-width: 480px) {
+            /* Extra small screens */
+            nav {
+                padding: 0 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-content {
+                padding: 1.5rem 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .artwork-image {
+                height: 200px;
+            }
+            
+            .artist-photo {
+                height: 200px;
+            }
+            
+            .concept {
+                padding: 1.5rem;
+            }
+            
+            .contact-item {
+                width: 180px;
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            /* Show shorter logo text on very small screens */
+            .logo-text {
+                display: block;
+            }
+            
+            .logo-text::after {
+                content: "NOMOS";
+            }
+            
+            .logo-text {
+                font-size: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -535,12 +781,17 @@
                 <img src="logo.PNG" alt="NOMOS Logo" style="height: 40px; width: auto;">
                 <div class="logo-text">NOMOS | Natalia Magnusson Art Portfolio </div>
             </div>
-            <ul class="nav-links">
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#artist">Artist</a></li>
-                <li><a href="#about">Philosophy</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <ul id="nav-links" class="nav-links">
+                <li><a href="#gallery" onclick="closeMobileMenu()">Gallery</a></li>
+                <li><a href="#artist" onclick="closeMobileMenu()">Artist</a></li>
+                <li><a href="#about" onclick="closeMobileMenu()">Philosophy</a></li>
+                <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
             </ul>
+            <div class="menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
     </header>
 
@@ -680,6 +931,27 @@
     </footer>
 
     <script>
+        // Mobile Menu Functions
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const navLinks = document.getElementById('nav-links');
+            navLinks.classList.remove('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navLinks = document.getElementById('nav-links');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -694,16 +966,18 @@
             });
         });
 
-        // Simple hover effects for artwork cards
-        document.querySelectorAll('.artwork-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-8px) scale(1.02)';
+        // Simple hover effects for artwork cards (only on non-touch devices)
+        if (!('ontouchstart' in window)) {
+            document.querySelectorAll('.artwork-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
             });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
+        }
 
         // Header background on scroll
         window.addEventListener('scroll', () => {
@@ -715,15 +989,15 @@
             }
         });
 
-// Lightbox Functions
-function openLightbox(imageSrc) {
-    document.getElementById('lightbox').style.display = 'block';
-    document.getElementById('lightbox-img').src = imageSrc;
-}
+        // Lightbox Functions
+        function openLightbox(imageSrc) {
+            document.getElementById('lightbox').style.display = 'block';
+            document.getElementById('lightbox-img').src = imageSrc;
+        }
 
-function closeLightbox() {
-    document.getElementById('lightbox').style.display = 'none';
-}
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
         
     </script>
     
