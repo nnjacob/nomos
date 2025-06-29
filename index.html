@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- META TAGS AND BASIC SETUP -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title> NOMOS   Natalia Magnusson Art Portfolio </title>
+    
+    <!-- GOOGLE FONTS IMPORTS -->
+    <!-- Preconnect for faster font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Import Crimson Text and Lora fonts with various weights -->
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
     <style>
-        /* Oil Pastel Inspired Color Palette */
+        /* ========================================
+           CSS CUSTOM PROPERTIES (CSS VARIABLES)
+           These define the color palette used throughout the site
+        ======================================== */
         :root {
             /* Green Base Colors - Oil Pastel Inspired */
             --sage-light: #a8b5a0;           
@@ -29,12 +38,22 @@
             --cream-muted: #e8e6e0;          
             --charcoal-soft: #4a4a4a;        
             
+            /* Gallery Colors */
+            --gallery-wall: #f5f3f0;
+            --gallery-wall-shadow: #e8e5e2;
+            --plaque-gold: #d4af37;
+            --plaque-shadow: rgba(0, 0, 0, 0.2);
+            
             /* Solid Pink Color for Better Contrast */
             --pink-solid: #d67084;
+            /* Background gradient used throughout the site */
             --gradient-bg: linear-gradient(180deg, var(--forest-deeper) 0%, var(--sage-deep) 100%);
         }
 
-        /* Reset and Base Styles */
+        /* ========================================
+           GLOBAL RESET AND BASE STYLES
+           Sets up basic styling for all elements
+        ======================================== */
         * {
             margin: 0;
             padding: 0;
@@ -46,59 +65,72 @@
             background: var(--gradient-bg);
             color: var(--cream-warm);
             line-height: 1.7;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Prevents horizontal scrolling */
         }
 
-        /* Typography Hierarchy */
+        /* Typography Hierarchy - Defines font families for headings */
         h1, h2, h3 {
             font-family: 'Crimson Text', serif;
             font-weight: 600;
         }
 
-        /* Smooth Scrolling */
+        /* Smooth Scrolling for anchor links */
         html {
             scroll-behavior: smooth;
         }
 
-        /* Fixed Voronoi Background - No Animation */
-        .voronoi-master {
-            position: fixed;
+        /* ========================================
+           NEW CUSTOM BACKGROUND SECTION
+           Placeholder for your custom PNG background
+        ======================================== */
+        .custom-background {
+            position: fixed; /* Stays in place while scrolling */
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><polygon points="0,0 120,80 80,150 0,120" fill="%235a6b4f" opacity="0.15" stroke="%23a8b5a0" stroke-width="1"/><polygon points="120,80 250,0 300,100 200,140 80,150" fill="%237d8471" opacity="0.12" stroke="%23a8b5a0" stroke-width="1"/><polygon points="250,0 400,60 380,180 300,100" fill="%234a7c9c" opacity="0.18" stroke="%23a8b5a0" stroke-width="1"/><polygon points="400,60 500,0 600,120 520,200 380,180" fill="%235a6b4f" opacity="0.14" stroke="%23a8b5a0" stroke-width="1"/><polygon points="500,0 800,0 800,150 600,120" fill="%236b8ba3" opacity="0.16" stroke="%23a8b5a0" stroke-width="1"/><polygon points="0,120 80,150 60,280 0,250" fill="%23b8a85c" opacity="0.20" stroke="%23a8b5a0" stroke-width="1"/><polygon points="80,150 200,140 180,300 60,280" fill="%235a6b4f" opacity="0.13" stroke="%23a8b5a0" stroke-width="1"/><polygon points="200,140 300,100 380,180 320,280 180,300" fill="%233d4a35" opacity="0.19" stroke="%23a8b5a0" stroke-width="1"/><polygon points="380,180 520,200 480,350 320,280" fill="%235c94b8" opacity="0.15" stroke="%23a8b5a0" stroke-width="1"/><polygon points="520,200 600,120 800,150 800,400 680,380 480,350" fill="%23a89c5f" opacity="0.14" stroke="%23a8b5a0" stroke-width="1"/><polygon points="0,250 60,280 40,450 0,400" fill="%233d4a35" opacity="0.18" stroke="%23a8b5a0" stroke-width="1"/><polygon points="60,280 180,300 160,480 40,450" fill="%236b8ba3" opacity="0.16" stroke="%23a8b5a0" stroke-width="1"/><polygon points="180,300 320,280 300,500 160,480" fill="%235a6b4f" opacity="0.14" stroke="%23a8b5a0" stroke-width="1"/><polygon points="320,280 480,350 450,550 300,500" fill="%23c4b366" opacity="0.20" stroke="%23a8b5a0" stroke-width="1"/><polygon points="480,350 680,380 650,600 450,550" fill="%234a7c9c" opacity="0.19" stroke="%23a8b5a0" stroke-width="1"/><polygon points="680,380 800,400 800,600 650,600" fill="%235a6b4f" opacity="0.15" stroke="%23a8b5a0" stroke-width="1"/><polygon points="0,400 40,450 0,600" fill="%236b8ba3" opacity="0.16" stroke="%23a8b5a0" stroke-width="1"/><polygon points="40,450 160,480 120,600 0,600" fill="%237d8471" opacity="0.14" stroke="%23a8b5a0" stroke-width="1"/><polygon points="160,480 300,500 250,600 120,600" fill="%235c94b8" opacity="0.18" stroke="%23a8b5a0" stroke-width="1"/><polygon points="300,500 450,550 400,600 250,600" fill="%23a89c5f" opacity="0.17" stroke="%23a8b5a0" stroke-width="1"/><polygon points="450,550 650,600 400,600" fill="%23b8a85c" opacity="0.15" stroke="%23a8b5a0" stroke-width="1"/><polygon points="100,80 180,120 160,200 100,180" fill="%23c4b366" opacity="0.12" stroke="%23a8b5a0" stroke-width="1"/><polygon points="280,60 360,100 340,180 280,140" fill="%235c94b8" opacity="0.16" stroke="%23a8b5a0" stroke-width="1"/><polygon points="450,80 530,120 510,200 450,160" fill="%23a89c5f" opacity="0.14" stroke="%23a8b5a0" stroke-width="1"/><polygon points="120,220 200,260 180,340 120,300" fill="%236b8ba3" opacity="0.13" stroke="%23a8b5a0" stroke-width="1"/><polygon points="350,240 430,280 410,360 350,320" fill="%23b8a85c" opacity="0.17" stroke="%23a8b5a0" stroke-width="1"/><polygon points="580,220 660,260 640,340 580,300" fill="%234a7c9c" opacity="0.15" stroke="%23a8b5a0" stroke-width="1"/></svg>');
-            z-index: -1;
-            opacity: 0.4;
+            /* PLACEHOLDER: Replace 'your-background.png' with your actual background image */
+            background-image: url('mainwall.jpg');
+            background-size: cover; /* Covers entire screen */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Prevents repeating */
+            background-attachment: fixed; /* Creates parallax effect */
+            z-index: -1; /* Behind all other content */
+            opacity: 0.8; /* Adjust transparency (0.1 = very transparent, 1.0 = fully opaque) */
         }
 
-        /* Header and Navigation */
+        /* ========================================
+           FIXED HEADER AND NAVIGATION STYLES
+           Fixed header with logo and navigation menu
+        ======================================== */
         header {
-            position: fixed;
+            position: fixed; /* Stays at top while scrolling */
             top: 0;
             width: 100%;
-            background: rgba(42, 51, 45, 0.95);
-            backdrop-filter: blur(15px);
-            z-index: 1000;
+            background: rgba(42, 51, 45, 0.95); /* Semi-transparent background */
+            backdrop-filter: blur(15px); /* Blur effect for glassmorphism */
+            z-index: 1000; /* High z-index to stay above other content */
             padding: 1rem 0;
             border-bottom: 1px solid rgba(168, 181, 160, 0.2);
         }
 
         nav {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-between; /* Logo on left, menu on right */
             align-items: center;
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
+        /* Logo container - holds logo image and text */
         .logo-container {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
 
+        /* Geometric logo shape using clip-path */
         .logo-image {
             width: 40px;
             height: 40px;
@@ -112,6 +144,7 @@
             font-weight: bold;
         }
 
+        /* Logo text styling */
         .logo-text {
             font-family: 'Crimson Text', serif;
             font-size: 1.6rem;
@@ -120,12 +153,14 @@
             letter-spacing: 0.5px;
         }
 
+        /* Navigation menu styling */
         .nav-links {
             display: flex;
-            list-style: none;
+            list-style: none; /* Remove bullet points */
             gap: 2.5rem;
         }
 
+        /* Navigation link styling */
         .nav-links a {
             color: var(--pink-solid);
             text-decoration: none;
@@ -136,6 +171,7 @@
             letter-spacing: 0.3px;
         }
 
+        /* Hover underline effect for nav links */
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -148,14 +184,14 @@
         }
 
         .nav-links a:hover::after {
-            width: 100%;
+            width: 100%; /* Expands underline on hover */
         }
 
         .nav-links a:hover {
             color: var(--blush-medium);
         }
 
-        /* Social media links styling for top nav */
+        /* Special styling for social media links in navigation */
         .nav-links a[href*="instagram"],
         .nav-links a[href*="linkedin"] {
             color: var(--cream-warm);
@@ -166,14 +202,18 @@
             color: var(--blush-medium);
         }
 
-        /* Mobile Menu Toggle */
+        /* ========================================
+           MOBILE MENU TOGGLE (HAMBURGER MENU)
+           Hidden by default, shown on mobile
+        ======================================== */
         .menu-toggle {
-            display: none;
+            display: none; /* Hidden on desktop */
             flex-direction: column;
             cursor: pointer;
             gap: 4px;
         }
 
+        /* Hamburger menu lines */
         .menu-toggle span {
             width: 25px;
             height: 3px;
@@ -181,9 +221,12 @@
             transition: all 0.3s ease;
         }
 
-        /* Hero Section with Tessellated Title */
+        /* ========================================
+           HERO SECTION WITH GOLD FRAME AND WHITE CONTENT
+           Main landing area with framed white content box
+        ======================================== */
         .hero {
-            height: 100vh;
+            height: 100vh; /* Full viewport height */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -191,88 +234,147 @@
             position: relative;
         }
 
-        .hero-content {
+        /* NEW: Hero frame container with adjustable sizing */
+        .hero-frame-container {
             position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 3rem;
-            background: rgba(93, 107, 79, 0.1);
-            backdrop-filter: blur(10px);
-            clip-path: polygon(10% 0%, 90% 0%, 100% 25%, 100% 75%, 90% 100%, 10% 100%, 0% 75%, 0% 25%);
-            border: 2px solid rgba(244, 210, 215, 0.3);
+            z-index: 2; /* Above background */
+            /* Default hero frame size - adjustable via CSS variables */
+            width: var(--hero-frame-width, 700px);
+            height: var(--hero-frame-height, 500px);
+            transition: all 0.4s ease;
         }
 
+        /* NEW: Gold frame PNG overlay for hero section */
+        .hero-gold-frame {
+            position: absolute;
+            top: -11%;
+            left: -10%;
+            width: 120%;
+            height: 125%;
+            /* PLACEHOLDER: Replace 'hero-gold-frame.png' with your actual frame image */
+            background-image: url('goldframe8.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: 3;
+            pointer-events: none; /* Allows clicking through to content */
+        }
+
+        /* NEW: White rectangular content area behind the frame */
+        .hero-content {
+            position: absolute;
+            /* Adjustable content positioning within frame */
+            top: var(--hero-content-top, 12%);
+            left: var(--hero-content-left, 12%);
+            width: var(--hero-content-width, 76%);
+            height: var(--hero-content-height, 76%);
+            background: white; /* White background instead of transparent */
+            padding: var(--hero-padding, 4rem 3rem); /* Increased padding for more cushion */
+            border-radius: 10px; /* Subtle rounded corners */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            z-index: 2; /* Behind frame but above background */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            /* Add inner spacing buffer to keep text away from edges */
+            box-sizing: border-box;
+        }
+
+        /* Hero title styling - adaptive text size based on container */
         .hero h1 {
-            font-size: 3.8rem;
+            font-size: var(--hero-title-size, clamp(1.8rem, 4.5vw, 3.2rem)); /* Reduced max size for more padding room */
             margin-bottom: 0.8rem;
-            color: var(--pink-solid);
+            color: var(--forest-darker, #2a332d); /* Dark text for contrast */
             font-weight: 600;
             letter-spacing: 1px;
             line-height: 1.2;
         }
 
+        /* Artist name styling - adaptive text size */
         .hero-name {
-            font-size: 1.8rem;
-            color: var(--blush-light);
-            margin-bottom: 1.5rem;
+            font-size: var(--hero-name-size, clamp(1rem, 2.2vw, 1.5rem)); /* Reduced max size */
+            color: var(--sage-deep); /* Elegant green for contrast */
+            margin-bottom: 1.2rem; /* Reduced margin for tighter spacing */
             font-family: 'Lora', serif;
             font-weight: 500;
             letter-spacing: 0.8px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
 
+        /* Hero subtitle/description - adaptive text size */
         .hero-subtitle {
-            font-size: 1.1rem;
-            color: var(--cream-muted);
-            margin-bottom: 2.5rem;
+            font-size: var(--hero-subtitle-size, clamp(0.85rem, 1.5vw, 1rem)); /* Reduced max size */
+            color: var(--charcoal-soft); /* Dark gray for readability */
+            margin-bottom: 0; /* Remove margin since button is now outside */
             font-style: italic;
             font-weight: 400;
             letter-spacing: 0.5px;
+            max-width: 90%; /* Prevent text from spreading too wide */
         }
 
+        /* Call-to-action button - now positioned outside the frame */
         .cta-button {
             display: inline-block;
             padding: 1rem 2.5rem;
             background: var(--pink-solid);
             color: var(--cream-warm);
             text-decoration: none;
-            clip-path: polygon(15% 0%, 85% 0%, 100% 35%, 100% 65%, 85% 100%, 15% 100%, 0% 65%, 0% 35%);
+            border-radius: 8px; /* Simplified rounded corners instead of complex clipping */
             font-weight: 500;
             font-family: 'Lora', serif;
             transition: all 0.3s ease;
             letter-spacing: 0.3px;
             box-shadow: 0 4px 15px rgba(214, 112, 132, 0.3);
+            margin-top: 2rem; /* Space above button */
+            font-size: clamp(0.9rem, 1.5vw, 1rem); /* Adaptive button text size */
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
+            transform: translateY(-3px); /* Lift effect on hover */
             box-shadow: 0 8px 25px rgba(214, 112, 132, 0.4);
             background: var(--rose-deep);
         }
 
-        /* Floating Jewelry Pendants 
+        /* NEW: Container for button positioned outside frame */
+        .hero-button-container {
+            position: absolute;
+            bottom: var(--button-bottom, 8%); /* Position below the frame */
+            left: 50%;
+            transform: translateX(-50%); /* Center horizontally */
+            z-index: 4; /* Above frame and content */
+        }
+
+        /* ========================================
+           FLOATING JEWELRY PENDANTS ANIMATION
+           Instructions for adding your own jewelry images
+        ======================================== */
+        /* 
            TO ADD YOUR JEWELRY: 
            1. Save your pendant images as PNG files with transparent backgrounds
            2. Name them: pendant1.png, pendant2.png, pendant3.png, pendant4.png, pendant5.png, pendant6.png
            3. Place them in the same folder as this HTML file
            4. Crop them tightly around the pendant with transparent backgrounds for best effect
         */
+        
+        /* Container for all floating elements */
         .floating-polygons {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
+            pointer-events: none; /* Allows clicking through to content below */
             overflow: hidden;
         }
 
+        /* Base class for all floating pendants */
         .floating-pendant {
             position: absolute;
             opacity: 1;
             animation-timing-function: linear;
             animation-iteration-count: infinite;
-            filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.3));
+            filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.3)); /* Shadow effect */
         }
 
         .floating-pendant img {
@@ -281,11 +383,12 @@
             object-fit: contain;
         }
 
+        /* Individual pendant positioning and sizing */
         .pendant-1 {
             width: 80px;
             height: 80px;
             top: 15%;
-            left: -100px;
+            left: -100px; /* Starts off-screen left */
             animation: jewelryDrift1 25s infinite linear;
         }
 
@@ -329,7 +432,10 @@
             animation: jewelryDrift6 32s infinite linear;
         }
 
-        /* Smooth horizontal drifting animations for jewelry */
+        /* ========================================
+           JEWELRY ANIMATION KEYFRAMES
+           Each pendant has its own unique drift pattern
+        ======================================== */
         @keyframes jewelryDrift1 {
             0% { 
                 transform: translateX(0px) translateY(0px) rotate(0deg); 
@@ -384,15 +490,257 @@
             }
         }
 
-        /* Simple Gallery Layout - Clean Squares */
+        /* ========================================
+           GALLERY SECTION STYLES
+           Art gallery with wallpaper, PNG frames, and clickable plaques
+        ======================================== */
         .gallery {
-            padding: 6rem 2rem;
+            padding: 6rem 0;
+            position: relative;
+            z-index: 2;
+            /* Gallery wall background */
+            background: 
+        url('wall.png'),
+        var(--gallery-wall);
+            background-size: 800px 800px;
+            /* Subtle shadow overlay for depth */
+            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-container {
             max-width: 1400px;
             margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section title styling for gallery */
+        .gallery-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 4rem;
+            color: var(--charcoal-soft);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Gallery grid layout - 3 columns */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4rem 2rem;
+            align-items: start;
+        }
+
+        /* Individual artwork display container */
+        .artwork-display {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Frame container with customizable sizing */
+        .frame-container {
+            position: relative;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            /* Default frame size - adjustable via data attributes */
+            width: var(--frame-width, 400px);
+            height: var(--frame-height, 300px);
+        }
+
+        .frame-container:hover {
+            transform: translateY(-5px) scale(1.02);
+            filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.4));
+        }
+
+        /* Individual frame PNG overlay - each artwork can have its own frame */
+        .custom-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Artwork image behind frame */
+        .artwork-image {
+            position: absolute;
+            /* Adjustable artwork positioning within frame */
+            top: var(--artwork-top, 15%);
+            left: var(--artwork-left, 15%);
+            width: var(--artwork-width, 70%);
+            height: var(--artwork-height, 70%);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 1;
+        }
+
+        /* Simple museum plaque styling - green theme to match website */
+        .museum-plaque {
+            background: linear-gradient(158deg, var(--forest-deeper), var(--forest-deeper));
+            color: var(--cream-warm);
+            padding: 1rem 2rem;
+            margin-top: 2rem;
+            border-radius: 6px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--sage-medium);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .museum-plaque:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(135deg, var(--forest-dark), var(--forest-dark));
+            border-color: var( --sage-deep);
+        }
+
+        .plaque-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--blush-light);
+            margin: 0;
+            letter-spacing: 0.5px;
+        }
+
+        /* Modal for extended artwork information - green theme */
+        .artwork-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, var(--forest-deeper), var(--sage-deep));
+            padding: 3rem;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            border: 3px solid var(--sage-light);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--blush-light);
+            margin-bottom: 1rem;
+            text-align: center;
+            border-bottom: 2px solid rgba(168, 181, 160, 0.3);
+            padding-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .modal-details {
+            font-family: 'Lora', serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--sage-light);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .modal-description {
+            font-family: 'Lora', serif;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--cream-warm);
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: var(--blush-medium);
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(93, 107, 79, 0.3);
+            transition: all 0.3s ease;
+            border: 2px solid var(--sage-medium);
+        }
+
+        .modal-close:hover {
+            background: var(--sage-medium);
+            color: var(--cream-warm);
+            transform: scale(1.1);
+            border-color: var(--blush-medium);
+        }
+
+        /* ========================================
+           ARTIST SECTION STYLES
+           Two-column layout with photo and bio
+        ======================================== */
+        .artist {
+            background: rgba(42, 51, 45, 0.8); /* Darker background for contrast */
+            padding: 6rem 2rem;
             position: relative;
             z-index: 2;
         }
 
+        /* Grid layout for artist content */
+        .artist-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr; /* Photo takes 1/3, content takes 2/3 */
+            gap: 4rem;
+            align-items: center;
+        }
+
+        /* Artist photo container */
+        .artist-photo {
+            width: 100%;
+            height: 400px;
+            background: var(--sage-medium); /* Fallback background */
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--cream-warm);
+            font-weight: 500;
+            cursor: pointer; /* Indicates clickable for lightbox */
+            transition: all 0.3s ease;
+        }
+
+        .artist-photo:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Section title styling - used across multiple sections */
         .section-title {
             text-align: center;
             font-size: 2.5rem;
@@ -402,94 +750,7 @@
             letter-spacing: 0.5px;
         }
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .artwork-card {
-            background: rgba(93, 107, 79, 0.2);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(168, 181, 160, 0.2);
-            backdrop-filter: blur(10px);
-        }
-
-        .artwork-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            border-color: var(--blush-medium);
-        }
-
-        .artwork-image {
-            width: 100%;
-            height: 280px;
-            background: var(--sage-medium);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            color: var(--cream-warm);
-            font-weight: 500;
-            font-family: 'Crimson Text', serif;
-        }
-
-        .artwork-info {
-            padding: 2rem;
-        }
-
-        .artwork-title {
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
-            color: var(--blush-medium);
-            font-weight: 600;
-        }
-
-        .artwork-description {
-            color: var(--cream-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Simple Artist Section */
-        .artist {
-            background: rgba(42, 51, 45, 0.8);
-            padding: 6rem 2rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .artist-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .artist-photo {
-            width: 100%;
-            height: 400px;
-            background: var(--sage-medium);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: var(--cream-warm);
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .artist-photo:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-
+        /* Artist biography text */
         .artist-bio {
             color: var(--cream-muted);
             font-size: 1.05rem;
@@ -497,18 +758,20 @@
             margin-bottom: 2rem;
         }
 
+        /* Grid layout for artist highlights/achievements */
         .artist-highlights {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
             gap: 1.5rem;
             margin-top: 2rem;
         }
 
+        /* Individual highlight card */
         .highlight {
             padding: 1.5rem;
             background: rgba(168, 181, 160, 0.1);
             border-radius: 15px;
-            border-left: 4px solid var(--rose-deep);
+            border-left: 4px solid var(--rose-deep); /* Accent border */
             transition: all 0.3s ease;
         }
 
@@ -517,6 +780,7 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
 
+        /* Highlight image container */
         .highlight-image {
             width: 100%;
             height: 120px;
@@ -541,6 +805,7 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
+        /* Highlight title and description */
         .highlight h4 {
             color: var(--blush-medium);
             font-size: 1.1rem;
@@ -553,7 +818,10 @@
             font-size: 0.9rem;
         }
 
-        /* Studio Section - Central Description with Side Images */
+        /* ========================================
+           STUDIO SECTION STYLES
+           Central description with surrounding images
+        ======================================== */
         .studio {
             padding: 6rem 2rem;
             position: relative;
@@ -565,20 +833,20 @@
             margin: 0 auto;
         }
 
-        /* Studio layout container */
+        /* Grid layout for studio gallery - 3 columns, 2 rows */
         .studio-gallery-layout {
             display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-columns: 1fr 2fr 1fr; /* Side images smaller, center content larger */
             grid-template-rows: auto auto;
             gap: 2rem;
             align-items: center;
             margin-top: 4rem;
         }
 
-        /* Central description */
+        /* Central description panel */
         .studio-description {
-            grid-column: 2;
-            grid-row: 1 / 3;
+            grid-column: 2; /* Middle column */
+            grid-row: 1 / 3; /* Spans both rows */
             font-size: 1.1rem;
             line-height: 1.8;
             color: var(--cream-muted);
@@ -593,7 +861,7 @@
             position: relative;
         }
 
-        /* Left side images - vertically stacked */
+        /* Grid positioning for studio images */
         .studio-image-left-1 {
             grid-column: 1;
             grid-row: 1;
@@ -604,7 +872,6 @@
             grid-row: 2;
         }
 
-        /* Right side images - vertically stacked */
         .studio-image-right-1 {
             grid-column: 3;
             grid-row: 1;
@@ -628,12 +895,13 @@
         }
 
         .studio-image:hover {
-            transform: translateY(-5px) scale(1.05);
+            transform: translateY(-5px) scale(1.05); /* Combined lift and scale effect */
             border-color: var(--blush-medium);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            z-index: 10;
+            z-index: 10; /* Brings hovered image to front */
         }
 
+        /* Studio photo container within each studio image */
         .studio-photo {
             width: 100%;
             height: 100%;
@@ -649,7 +917,10 @@
             background-position: center;
         }
 
-        /* Contact Section */
+        /* ========================================
+           CONTACT SECTION STYLES
+           Simple centered layout with contact information
+        ======================================== */
         .contact {
             padding: 6rem 2rem;
             text-align: center;
@@ -663,6 +934,7 @@
             margin: 0 auto;
         }
 
+        /* Contact information container */
         .contact-info {
             display: flex;
             justify-content: center;
@@ -670,6 +942,7 @@
             margin-top: 2.5rem;
         }
 
+        /* Individual contact item styling */
         .contact-item {
             color: var(--blush-medium);
             text-decoration: none;
@@ -678,6 +951,7 @@
             transition: all 0.3s ease;
             padding: 1rem 2rem;
             border: 2px solid var(--blush-medium);
+            /* Geometric clipping for unique button shape */
             clip-path: polygon(15% 0%, 85% 0%, 100% 30%, 100% 70%, 85% 100%, 15% 100%, 0% 70%, 0% 30%);
         }
 
@@ -688,7 +962,10 @@
             transform: translateY(-2px);
         }
 
-        /* Footer */
+        /* ========================================
+           FOOTER STYLES
+           Simple footer with copyright information
+        ======================================== */
         footer {
             background: var(--forest-deeper);
             padding: 2.5rem;
@@ -699,39 +976,45 @@
             z-index: 2;
         }
 
-        /* Lightbox Styles */
+        /* ========================================
+           LIGHTBOX STYLES
+           Full-screen image overlay for viewing artwork
+        ======================================== */
         .lightbox {
-            display: none;
+            display: none; /* Hidden by default */
             position: fixed;
-            z-index: 9999;
+            z-index: 9999; /* Highest z-index to appear above everything */
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.9); /* Dark overlay */
+            cursor: pointer; /* Indicates clicking will close */
         }
 
+        /* Lightbox content container */
         .lightbox-content {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); /* Centers the content */
             max-width: 90%;
             max-height: 90%;
             width: auto;
             height: auto;
         }
 
+        /* Lightbox image styling */
         .lightbox img {
             width: 100%;
             height: auto;
             max-height: 85vh;
             max-width: 100%;
-            object-fit: contain;
+            object-fit: contain; /* Maintains aspect ratio */
             display: block;
         }
 
+        /* Lightbox description (currently not used but available) */
         .lightbox-description {
             position: absolute;
             bottom: 20px;
@@ -746,9 +1029,10 @@
             font-size: 1rem;
             line-height: 1.6;
             border: 1px solid rgba(244, 210, 215, 0.3);
-            display: none;
+            display: none; /* Hidden by default */
         }
 
+        /* Close button for lightbox */
         .close {
             position: absolute;
             top: 20px;
@@ -768,6 +1052,11 @@
             border: 2px solid var(--cream-warm);
         }
 
+        /* ========================================
+           RESPONSIVE DESIGN - MOBILE OPTIMIZATIONS
+           Media queries for different screen sizes
+        ======================================== */
+        
         /* Mobile-optimized lightbox */
         @media (max-width: 768px) {
             .lightbox-content {
@@ -804,7 +1093,7 @@
                 z-index: 10001;
             }
             
-            /* Ensure all interactive elements are touch-friendly */
+            /* Ensure all interactive elements are touch-friendly (44px minimum) */
             .cta-button,
             .contact-item,
             .nav-links a {
@@ -824,14 +1113,24 @@
             }
         }
 
+        /* Extra small mobile screens */
         @media (max-width: 480px) {
             .lightbox-content {
                 padding: 50px 5px 5px 5px;
             }
         }
 
-        /* Responsive Design */
+        /* ========================================
+           TABLET AND MEDIUM SCREEN RESPONSIVE STYLES
+        ======================================== */
         @media (max-width: 1024px) {
+            /* Hero frame adjustments for tablets */
+            .hero-frame-container {
+                width: var(--hero-frame-width-tablet, 600px);
+                height: var(--hero-frame-height-tablet, 450px);
+            }
+
+            /* Artist section becomes single column on tablets */
             .artist-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -840,12 +1139,18 @@
                 height: 300px;
             }
             
+            /* Gallery adjusts to 2 columns on tablets */
             .gallery-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 2rem;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem 2rem;
             }
 
-            /* Mobile studio gallery layout */
+            .frame-container {
+                width: var(--frame-width-tablet, 350px);
+                height: var(--frame-height-tablet, 260px);
+            }
+
+            /* Studio gallery becomes single column on tablets */
             .studio-gallery-layout {
                 grid-template-columns: 1fr;
                 grid-template-rows: auto;
@@ -866,28 +1171,33 @@
             }
         }
 
+        /* ========================================
+           MOBILE RESPONSIVE STYLES (PHONES)
+        ======================================== */
         @media (max-width: 768px) {
-            /* Mobile Navigation */
+            /* Mobile Navigation - Show hamburger menu */
             .menu-toggle {
                 display: flex;
             }
             
+            /* Mobile navigation menu - slides in from left */
             .nav-links {
                 position: fixed;
                 top: 80px;
-                left: -100%;
+                left: -100%; /* Hidden off-screen */
                 width: 100%;
                 height: calc(100vh - 80px);
                 background: rgba(42, 51, 45, 0.98);
                 backdrop-filter: blur(15px);
-                flex-direction: column;
+                flex-direction: column; /* Stack vertically */
                 justify-content: flex-start;
                 align-items: center;
                 gap: 2rem;
                 padding-top: 3rem;
-                transition: left 0.3s ease;
+                transition: left 0.3s ease; /* Slide animation */
             }
             
+            /* Show mobile menu when active class is added */
             .nav-links.active {
                 left: 0;
             }
@@ -907,32 +1217,38 @@
                 gap: 0.5rem;
             }
             
-            /* Hero Section Mobile */
-            .hero-content {
-                clip-path: polygon(5% 0%, 95% 0%, 100% 15%, 100% 85%, 95% 100%, 5% 100%, 0% 85%, 0% 15%);
-                padding: 2rem 1.5rem;
-                margin: 0 1rem;
+            /* Hero Section Mobile Adjustments */
+            .hero-frame-container {
+                width: var(--hero-frame-width-mobile, 350px);
+                height: var(--hero-frame-height-mobile, 280px);
             }
-            
+
+            .hero-content {
+                padding: var(--hero-padding-mobile, 2.5rem 2rem); /* More generous mobile padding */
+            }
+
+            /* Adjust adaptive text sizes for mobile */
             .hero h1 {
-                font-size: 2.2rem;
-                line-height: 1.1;
-                margin-bottom: 0.5rem;
+                --hero-title-size: clamp(1.5rem, 5vw, 2rem); /* Conservative sizing for mobile */
             }
             
             .hero-name {
-                font-size: 1.3rem;
+                --hero-name-size: clamp(0.9rem, 3vw, 1.2rem);
                 margin-bottom: 1rem;
             }
             
             .hero-subtitle {
-                font-size: 1rem;
-                margin-bottom: 2rem;
+                --hero-subtitle-size: clamp(0.8rem, 2vw, 0.95rem);
+                margin-bottom: 0;
             }
             
             .cta-button {
                 padding: 0.8rem 2rem;
-                font-size: 0.9rem;
+                font-size: clamp(0.8rem, 2vw, 0.9rem);
+            }
+
+            .hero-button-container {
+                --button-bottom: 5%;
             }
 
             /* Reduce pendant visibility on mobile for performance */
@@ -940,32 +1256,35 @@
                 opacity: 0.2;
             }
             
-            /* Section Titles Mobile */
-            .section-title {
-                font-size: 2rem;
-                margin-bottom: 2.5rem;
-            }
-            
-            /* Gallery Mobile */
+            /* Gallery Mobile Adjustments */
             .gallery {
                 padding: 4rem 1rem;
             }
             
+            .gallery-title {
+                font-size: 2.2rem;
+                margin-bottom: 3rem;
+            }
+            
+            /* Single column on mobile */
             .gallery-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 3rem;
             }
             
-            .artwork-image {
-                height: 250px;
+            .frame-container {
+                width: var(--frame-width-mobile, 320px);
+                height: var(--frame-height-mobile, 240px);
             }
-            
-            .artwork-info {
-                padding: 1.5rem;
+
+            .modal-content {
+                padding: 2rem;
+                width: 95%;
+                max-height: 85vh;
             }
-            
-            .artwork-title {
-                font-size: 1.2rem;
+
+            .modal-title {
+                font-size: 1.6rem;
             }
             
             /* Artist Section Mobile */
@@ -985,6 +1304,7 @@
                 font-size: 1rem;
             }
             
+            /* Artist highlights become single column on mobile */
             .artist-highlights {
                 grid-template-columns: 1fr;
                 gap: 1rem;
@@ -1025,6 +1345,7 @@
                 padding: 4rem 1rem;
             }
             
+            /* Contact info stacks vertically on mobile */
             .contact-info {
                 flex-direction: column;
                 gap: 1rem;
@@ -1034,35 +1355,65 @@
             .contact-item {
                 width: 200px;
                 text-align: center;
+                /* Simpler clipping for mobile */
                 clip-path: polygon(10% 0%, 90% 0%, 100% 25%, 100% 75%, 90% 100%, 10% 100%, 0% 75%, 0% 25%);
             }
         }
 
+        /* ========================================
+           EXTRA SMALL MOBILE SCREENS
+        ======================================== */
         @media (max-width: 480px) {
-            /* Extra small screens */
+            /* Extra small screens adjustments */
             nav {
                 padding: 0 1rem;
             }
-            
+
+            /* Hero adjustments for very small screens */
+            .hero-frame-container {
+                width: var(--hero-frame-width-small, 300px);
+                height: var(--hero-frame-height-small, 240px);
+            }
+
+            /* Further adjust adaptive text for very small screens */
             .hero h1 {
-                font-size: 1.8rem;
+                --hero-title-size: clamp(1.2rem, 5.5vw, 1.6rem); /* Very conservative for small screens */
             }
             
             .hero-name {
-                font-size: 1.1rem;
+                --hero-name-size: clamp(0.8rem, 3.5vw, 1rem);
                 margin-bottom: 0.8rem;
             }
             
-            .hero-content {
-                padding: 1.5rem 1rem;
+            .hero-subtitle {
+                --hero-subtitle-size: clamp(0.7rem, 2.2vw, 0.85rem);
             }
             
-            .section-title {
+            .hero-content {
+                padding: var(--hero-padding-small, 2rem 1.5rem); /* Generous padding even on small screens */
+            }
+
+            .cta-button {
+                width: 180px;
+                padding: 0.8rem 1.5rem;
+                font-size: clamp(0.7rem, 2.2vw, 0.9rem);
+            }
+
+            .hero-button-container {
+                --button-bottom: 3%;
+            }
+            
+            .gallery-title {
                 font-size: 1.8rem;
             }
             
-            .artwork-image {
-                height: 200px;
+            .frame-container {
+                width: var(--frame-width-small, 280px);
+                height: var(--frame-height-small, 210px);
+            }
+
+            .modal-content {
+                padding: 1.5rem;
             }
             
             .artist-photo {
@@ -1102,17 +1453,26 @@
     </style>
 </head>
 <body>
-    <!-- Fixed Voronoi Background -->
-    <div class="voronoi-master"></div>
+    <!-- ========================================
+         NEW CUSTOM BACKGROUND ELEMENT
+         Replace 'your-background.png' with your background image
+    ======================================== -->
+    <div class="custom-background"></div>
 
-    <!-- Header -->
+    <!-- ========================================
+         HEADER SECTION
+         Fixed navigation bar with logo and menu
+    ======================================== -->
     <header>
         <nav>
+            <!-- Logo section with image and text -->
             <div class="logo-container">
                 <!-- REPLACE WITH YOUR LOGO: -->
                 <img src="logo.PNG" alt="NOMOS Logo" style="height: 40px; width: auto;">
                 <div class="logo-text">  Natalia Magnusson Art Portfolio </div>
             </div>
+            
+            <!-- Main navigation menu -->
             <ul id="nav-links" class="nav-links">
                 <li><a href="#gallery" onclick="closeMobileMenu()">Gallery</a></li>
                 <li><a href="#artist" onclick="closeMobileMenu()">Artist</a></li>
@@ -1121,6 +1481,8 @@
                 <li><a href="https://instagram.com/nomos.art" target="_blank" onclick="closeMobileMenu()">Instagram</a></li>
                 <li><a href="https://linkedin.com/in/nnjacob" target="_blank" onclick="closeMobileMenu()">LinkedIn</a></li>
             </ul>
+            
+            <!-- Mobile hamburger menu toggle -->
             <div class="menu-toggle" onclick="toggleMobileMenu()">
                 <span></span>
                 <span></span>
@@ -1129,9 +1491,14 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- ========================================
+         HERO SECTION WITH GOLD FRAME
+         Main landing area with framed white content
+    ======================================== -->
     <section class="hero">
+        <!-- Container for floating jewelry pendant animations -->
         <div class="floating-polygons">
+            <!-- Each pendant floats across screen with unique animation -->
             <div class="floating-pendant pendant-1">
                 <img src="pendant1.PNG" alt="Jewelry Pendant 1" />
             </div>
@@ -1151,72 +1518,91 @@
                 <img src="pendant6.PNG" alt="Jewelry Pendant 6" />
             </div>
         </div>
-        <div class="hero-content">
-            <h1>Nomos Gallery</h1>
-            <div class="hero-name">Natalia Magnusson</div>
-            <p class="hero-subtitle">Neuroscience PhD student exploring "nomos" - the rules governing human behavior - through my art</p>
+        
+        <!-- NEW: Hero frame container with gold frame and white content -->
+        <div class="hero-frame-container">
+            <!-- Gold frame PNG overlay -->
+            <div class="hero-gold-frame"></div>
+            <!-- White rectangular content area -->
+            <div class="hero-content">
+                <h1>Nomos Gallery</h1>
+                <div class="hero-name">Natalia Magnusson</div>
+                <p class="hero-subtitle">Neuroscience PhD student exploring "nomos", the rules governing human behavior, through my art</p>
+            </div>
+        </div>
+        <!-- Button positioned outside the frame -->
+        <div class="hero-button-container">
             <a href="#gallery" class="cta-button">Explore the Collection</a>
         </div>
     </section>
 
-    <!-- Gallery Section - Simple Grid -->
+    <!-- ========================================
+         GALLERY SECTION
+         Art gallery with wallpaper background, PNG frames, and clickable plaques
+    ======================================== -->
     <section id="gallery" class="gallery">
-        <h2 class="section-title">Featured Works</h2>
-        <div class="gallery-grid">
-            
-            <div class="artwork-card">
-                <div class="artwork-image" style="background-image: url('allogrooming.JPEG'); background-size: cover; background-position: center; cursor: pointer;" onclick="openLightbox('allogrooming.JPEG')"></div>
-                <div class="artwork-info">
-                    <h3 class="artwork-title">Allogrooming</h3>
-                    <p class="artwork-description">2025 Oil pastel on geso board 7 × 10 inches framed; Depicting two rhesus macaques engaged in mutual grooming</p>
+        <div class="gallery-container">
+            <h2 class="gallery-title">Featured Works</h2>
+            <div class="gallery-grid">
+                
+                <!-- Artwork 1: Allogrooming -->
+                <div class="artwork-display">
+                    <div class="frame-container" 
+                         style="--frame-width: 400px; --frame-height: 300px; --artwork-top: 16%; --artwork-left: 12%; --artwork-width: 78%; --artwork-height: 74%;"
+                         onclick="openLightbox('allogrooming.JPEG')">
+                        <!-- Custom frame PNG for this artwork -->
+                        <div class="custom-frame" style="background-image: url('goldframe11.png');"></div>
+                        <!-- Artwork image positioned behind frame -->
+                        <div class="artwork-image" style="background-image: url('allogrooming.JPEG');"></div>
+                    </div>
+                    <!-- Clickable plaque for extended info -->
+                    <div class="museum-plaque" onclick="openArtworkModal('allogrooming')">
+                        <div class="plaque-title">Allogrooming</div>
+                    </div>
                 </div>
+                
+                <!-- Artwork 2: Confrontational Threat -->
+                <div class="artwork-display">
+                    <div class="frame-container" 
+                         style="--frame-width: 400px; --frame-height: 300px; --artwork-top: 15%; --artwork-left: 9%; --artwork-width: 80%; --artwork-height: 70%;"
+                         onclick="openLightbox('threat.JPEG')">
+                        <!-- Custom frame PNG for this artwork -->
+                        <div class="custom-frame" style="background-image: url('goldframe11.png');"></div>
+                        <div class="artwork-image" style="background-image: url('threat.JPEG');"></div>
+                    </div>
+                    <div class="museum-plaque" onclick="openArtworkModal('threat')">
+                        <div class="plaque-title">Confrontational Threat</div>
+                    </div>
+                </div>
+                
+                <!-- Artwork 3: Following Gaze -->
+                <div class="artwork-display">
+                    <div class="frame-container" 
+                         style="--frame-width: 400px; --frame-height: 300px; --artwork-top: 16%; --artwork-left: 13%; --artwork-width: 79%; --artwork-height: 69%;"
+                         onclick="openLightbox('followinggaze.JPEG')">
+                        <!-- Custom frame PNG for this artwork -->
+                        <div class="custom-frame" style="background-image: url('goldframe11.png');"></div>
+                        <div class="artwork-image" style="background-image: url('followinggaze.JPEG');"></div>
+                    </div>
+                    <div class="museum-plaque" onclick="openArtworkModal('followinggaze')">
+                        <div class="plaque-title">Following Gaze</div>
+                    </div>
+                </div>
+                
             </div>
-            <div class="artwork-card">
-                <div class="artwork-image" style="background-image: url('threat.JPEG'); background-size: cover; background-position: center; cursor: pointer;" onclick="openLightbox('threat.JPEG')"></div>
-                <div class="artwork-info">
-                    <h3 class="artwork-title">Confrontational Threat</h3>
-                    <p class="artwork-description">2025 Oil pastel on velvet paper 7 × 10 inches framed; Depicting a rhesus macaque eating & making intimidating eye contact</p>
-                </div>
-            </div>
-            
-            <div class="artwork-card">
-                <div class="artwork-image" style="background-image: url('followinggaze.JPEG'); background-size: cover; background-position: center; cursor: pointer;" onclick="openLightbox('followinggaze.JPEG')"></div>
-                <div class="artwork-info">
-                    <h3 class="artwork-title">Following Gaze</h3>
-                    <p class="artwork-description">2025 Oil pastel on velvet paper 7 × 10 inches framed; Depicting a rhesus macaque gazing upward </p>
-                </div>
-            </div>
-            
-        <!--      <div class="artwork-card"> 
-                <div class="artwork-image">Boundary Conditions</div>
-                <div class="artwork-info">
-                    <h3 class="artwork-title">Boundary Conditions</h3>
-                    <p class="artwork-description">The liminal spaces where mathematical precision meets natural chaos, creating unexpected beauty.</p>
-                </div>
-            </div>
-            
-            <div class="artwork-card">
-                <div class="artwork-image">Scientific Poetry</div>
-                <div class="artwork-info">
-                    <h3 class="artwork-title">Scientific Poetry</h3>
-                    <p class="artwork-description">Where research methodology becomes artistic expression through the geometric beauty of spatial analysis.</p>
-                </div>
-            </div>
-            
-            <div class="artwork-card">
-                <div class="artwork-image">Natural Algorithms</div>
-                <div class="artwork-info">
-                    <h3 class="artwork-title">Natural Algorithms</h3>
-                    <p class="artwork-description">Discovering the computational patterns that govern organic growth and optimal spatial distribution.</p>
-                </div>
-            </div> -->
         </div>
     </section>
 
-    <!-- Artist Section -->
+    <!-- ========================================
+         ARTIST SECTION
+         Biography and highlights about the artist
+    ======================================== -->
     <section id="artist" class="artist">
         <div class="artist-content">
+            <!-- Artist photo - clickable for lightbox view -->
             <div class="artist-photo" style="background-image: url('ArtistProfile.JPEG'); background-size: cover; background-position: center;" onclick="openLightbox('ArtistProfile.JPEG')"></div>
+            
+            <!-- Artist information content -->
             <div>
                 <h2 class="section-title">The Artist</h2>
                 <p class="artist-bio">
@@ -1226,6 +1612,7 @@
                     My work represents my interest in the rules behind social behavior "nomos" and my exploration of these behavioral patterns not only in humans, but also in other animals and non-human primates.
                 </p>
                 
+                <!-- Artist highlights grid - showcases different aspects -->
                 <div class="artist-highlights">
                     <div class="highlight">
                         <div class="highlight-image" style="background-image: url('Nataliascience.png'); background-size: cover; background-position: center;" onclick="openLightbox('Nataliascience.png')">
@@ -1250,13 +1637,17 @@
         </div>
     </section>
 
-    <!-- Studio Section -->
+    <!-- ========================================
+         STUDIO SECTION
+         Central description with surrounding studio images
+    ======================================== -->
     <section id="studio" class="studio">
         <div class="studio-container">
             <h2 class="section-title">My Studio</h2>
             
+            <!-- Grid layout with central description and surrounding images -->
             <div class="studio-gallery-layout">
-                <!-- Left side images -->
+                <!-- Left side images (stacked vertically) -->
                 <div class="studio-image studio-image-left-1">
                     <div class="studio-photo" style="background-image: url('paintingonsofa.png'); background-size: cover; background-position: center;" onclick="openLightbox('paintingonsofa.png')">
                     </div>
@@ -1267,12 +1658,12 @@
                     </div>
                 </div>
                 
-                <!-- Central description -->
+                <!-- Central description panel -->
                 <div class="studio-description">
                     My art studio is nothing special, just a chair that helps me maintain good posture, some good lighting, and paint and art supplies that appear chaotically organized from afar (though I've developed some spatial memory for where everything is). I enjoy reclaiming and buying supplies from family-owned art shops, as well as finding materials at thrift stores or out in nature, like collecting red clay. My creative process must be approved by my two cats (Charlie the orange cat & Tycho the tuxedo cat), who enjoy sitting beside me and inspecting my equipment to ensure it meets their feline standards.
                 </div>
                 
-                <!-- Right side images -->
+                <!-- Right side images (stacked vertically) -->
                 <div class="studio-image studio-image-right-1">
                     <div class="studio-photo" style="background-image: url('paintingabrain.JPEG'); background-size: cover; background-position: center;" onclick="openLightbox('paintingabrain.JPEG')">
                     </div>
@@ -1286,12 +1677,16 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- ========================================
+         CONTACT SECTION
+         Simple centered contact information
+    ======================================== -->
     <section id="contact" class="contact">
         <div class="contact-content">
             <h2 class="section-title">Connect</h2>
             <p style="font-size: 1.1rem; line-height: 1.8; color: var(--cream-muted); margin-bottom: 2rem;">Interested in purchasing my art or exploring art-science collaborations? Contact me via Instagram or email</p>
 
+            <!-- Contact information display -->
             <div class="contact-info">
                 <a href="https://instagram.com/nomos.art" target="_blank" style="color: var(--blush-medium); text-decoration: none; font-size: 1.1rem; font-weight: 500; margin-right: 2rem; transition: color 0.3s ease;" onmouseover="this.style.color='var(--rose-deep)'" onmouseout="this.style.color='var(--blush-medium)'">@nomos.art</a>
                 <span style="color: var(--cream-muted); font-size: 1.2rem; margin: 0 1rem;">|</span>
@@ -1300,89 +1695,469 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ========================================
+         FOOTER
+         Simple copyright footer
+    ======================================== -->
     <footer>
         <p>&copy; 2025 Nomos. All rights reserved.</p>
     </footer>
 
+    <!-- ========================================
+         LIGHTBOX HTML STRUCTURE
+         Full-screen overlay for viewing images
+    ======================================== -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <!-- Close button (X) -->
+        <span class="close">&times;</span>
+        <!-- Image container -->
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+        </div>
+    </div>
+
+    <!-- ========================================
+         ARTWORK MODAL FOR EXTENDED INFORMATION
+         Modal that opens when plaque is clicked
+    ======================================== -->
+    <div id="artwork-modal" class="artwork-modal" onclick="closeArtworkModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeArtworkModal()">&times;</span>
+            <div id="modal-title" class="modal-title">Artwork Title</div>
+            <div id="modal-details" class="modal-details">Artist details and medium</div>
+            <div id="modal-description" class="modal-description">Extended artwork description</div>
+        </div>
+    </div>
+
+    <!-- ========================================
+         JAVASCRIPT FUNCTIONALITY
+         All interactive features and event handlers
+    ======================================== -->
     <script>
-        // Mobile Menu Functions
+        // ========================================
+        // MOBILE MENU FUNCTIONS
+        // ========================================
+        
+        // Toggle mobile menu visibility
         function toggleMobileMenu() {
             const navLinks = document.getElementById('nav-links');
-            navLinks.classList.toggle('active');
+            navLinks.classList.toggle('active'); // Adds/removes 'active' class to show/hide menu
         }
 
+        // Close mobile menu (called when menu item is clicked)
         function closeMobileMenu() {
             const navLinks = document.getElementById('nav-links');
             navLinks.classList.remove('active');
         }
 
-        // Close mobile menu when clicking outside
+        // Close mobile menu when clicking outside of it
         document.addEventListener('click', function(event) {
             const navLinks = document.getElementById('nav-links');
             const menuToggle = document.querySelector('.menu-toggle');
             
+            // If click is not on menu or toggle button, close menu
             if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
                 navLinks.classList.remove('active');
             }
         });
 
-        // Smooth scrolling for navigation links
+        // ========================================
+        // SMOOTH SCROLLING FOR NAVIGATION
+        // ========================================
+        
+        // Add smooth scrolling to all anchor links (links that start with #)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+                e.preventDefault(); // Prevent default jump behavior
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({
-                        behavior: 'smooth',
+                        behavior: 'smooth', // Smooth scrolling animation
                         block: 'start'
                     });
                 }
             });
         });
 
-        // Simple hover effects for artwork cards (only on non-touch devices)
+        // ========================================
+        // HOVER EFFECTS FOR GOLD FRAMES
+        // ========================================
+        
+        // Add hover effects only on non-touch devices (desktop/laptop)
         if (!('ontouchstart' in window)) {
-            document.querySelectorAll('.artwork-card').forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-8px) scale(1.02)';
+            document.querySelectorAll('.frame-container').forEach(frame => {
+                frame.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.03)';
+                    this.style.filter = 'drop-shadow(0 20px 60px rgba(0, 0, 0, 0.5))';
                 });
                 
-                card.addEventListener('mouseleave', function() {
+                frame.addEventListener('mouseleave', function() {
                     this.style.transform = 'translateY(0) scale(1)';
+                    this.style.filter = 'drop-shadow(0 15px 35px rgba(0, 0, 0, 0.4))';
                 });
             });
         }
 
-        // Header background on scroll
+        // ========================================
+        // ARTWORK MODAL FUNCTIONS
+        // For displaying extended artwork information
+        // ========================================
+        
+        // Artwork data - you can modify these descriptions and details
+        const artworkData = {
+            'allogrooming': {
+                title: 'Allogrooming',
+                details: 'Natalia Magnusson, 2025<br>Oil pastel on geso board<br>7 × 10 inches, framed',
+                description: 'Depicting two rhesus macaques engaged in mutual grooming, this piece explores the intimate social bonds that define primate communities. Allogrooming serves not only as a hygiene practice but as a fundamental behavior that reinforces relationships, reduces tension, and maintains group cohesion. Through careful observation of these interactions, the artwork captures the tender yet purposeful nature of this social ritual, highlighting the complex emotional lives of our closest evolutionary relatives.'
+            },
+            'threat': {
+                title: 'Confrontational Threat',
+                details: 'Natalia Magnusson, 2025<br>Oil pastel on velvet paper<br>7 × 10 inches, framed',
+                description: 'A rhesus macaque eating while making intimidating eye contact, capturing the complex dynamics of dominance and vulnerability in primate societies. This behavioral display demonstrates how even basic activities like feeding can become charged with social meaning. The direct gaze serves as both a warning and an assertion of status, illustrating the constant negotiation of power that characterizes primate social structures. The artwork explores how survival behaviors are intricately woven with social communication.'
+            },
+            'followinggaze': {
+                title: 'Following Gaze',
+                details: 'Natalia Magnusson, 2025<br>Oil pastel on velvet paper<br>7 × 10 inches, framed',
+                description: 'A rhesus macaque gazing upward, illustrating the importance of attention and awareness in social navigation. Gaze following is a sophisticated cognitive ability that allows primates to share attention and learn from others\' focus. This behavior forms the foundation for more complex social learning and communication. The upward gaze suggests curiosity, vigilance, and the constant environmental monitoring that is essential for survival in complex social groups. The piece captures a moment of pure attention and wonder.'
+            }
+        };
+
+        // Open artwork modal with specific artwork data
+        function openArtworkModal(artworkKey) {
+            const artwork = artworkData[artworkKey];
+            if (artwork) {
+                document.getElementById('modal-title').textContent = artwork.title;
+                document.getElementById('modal-details').innerHTML = artwork.details;
+                document.getElementById('modal-description').textContent = artwork.description;
+                document.getElementById('artwork-modal').style.display = 'block';
+            }
+        }
+
+        // Close artwork modal
+        function closeArtworkModal() {
+            document.getElementById('artwork-modal').style.display = 'none';
+        }
+
+        // ========================================
+        // NEW HERO FRAME ADJUSTMENT FUNCTIONS
+        // Helper functions to adjust hero frame and content positioning
+        // ========================================
+        
+        // Function to update hero frame dimensions
+        function updateHeroFrameSize(width, height) {
+            const heroContainer = document.querySelector('.hero-frame-container');
+            if (heroContainer) {
+                heroContainer.style.setProperty('--hero-frame-width', width + 'px');
+                heroContainer.style.setProperty('--hero-frame-height', height + 'px');
+                console.log(`Hero frame resized to: ${width}x${height}px`);
+            }
+        }
+
+        // Function to update hero content positioning within frame
+        function updateHeroContentPosition(top, left, width, height) {
+            const heroContainer = document.querySelector('.hero-frame-container');
+            if (heroContainer) {
+                heroContainer.style.setProperty('--hero-content-top', top + '%');
+                heroContainer.style.setProperty('--hero-content-left', left + '%');
+                heroContainer.style.setProperty('--hero-content-width', width + '%');
+                heroContainer.style.setProperty('--hero-content-height', height + '%');
+                console.log(`Hero content positioned: top=${top}%, left=${left}%, width=${width}%, height=${height}%`);
+            }
+        }
+
+        // Function to change hero frame PNG
+        function updateHeroFrameImage(frameImagePath) {
+            const heroFrame = document.querySelector('.hero-gold-frame');
+            if (heroFrame) {
+                heroFrame.style.backgroundImage = `url('${frameImagePath}')`;
+                console.log(`Hero frame image updated to: ${frameImagePath}`);
+            }
+        }
+
+        // Function to set hero frame responsive sizes
+        function updateHeroResponsiveFrames() {
+            const heroContainer = document.querySelector('.hero-frame-container');
+            if (heroContainer) {
+                // Tablet sizes
+                heroContainer.style.setProperty('--hero-frame-width-tablet', '600px');
+                heroContainer.style.setProperty('--hero-frame-height-tablet', '450px');
+                // Mobile sizes  
+                heroContainer.style.setProperty('--hero-frame-width-mobile', '350px');
+                heroContainer.style.setProperty('--hero-frame-height-mobile', '280px');
+                // Small mobile sizes
+                heroContainer.style.setProperty('--hero-frame-width-small', '300px');
+                heroContainer.style.setProperty('--hero-frame-height-small', '240px');
+                console.log('Hero responsive frame sizes updated');
+            }
+        }
+
+        // Function to update hero text adaptive sizing
+        function updateHeroTextSizes(titleSize, nameSize, subtitleSize) {
+            const heroContainer = document.querySelector('.hero-frame-container');
+            if (heroContainer) {
+                heroContainer.style.setProperty('--hero-title-size', titleSize);
+                heroContainer.style.setProperty('--hero-name-size', nameSize);
+                heroContainer.style.setProperty('--hero-subtitle-size', subtitleSize);
+                console.log(`Hero text sizes updated: title=${titleSize}, name=${nameSize}, subtitle=${subtitleSize}`);
+            }
+        }
+
+        // ========================================
+        // HERO FRAME USAGE EXAMPLES
+        // Uncomment and modify these to adjust your hero frame
+        // ========================================
+        
+        // EXAMPLE 1: Make hero frame bigger
+        // updateHeroFrameSize(800, 600);
+        
+        // EXAMPLE 2: Adjust content position within frame (if frame overlaps content)
+        // updateHeroContentPosition(15, 15, 70, 70); // top, left, width, height as percentages
+        
+        // EXAMPLE 3: Change frame image
+        // updateHeroFrameImage('my-custom-hero-frame.png');
+        
+        // EXAMPLE 4: Fine-tune content positioning
+        // updateHeroContentPosition(12, 12, 76, 76); // Adjust these values to fit your frame
+
+        // ========================================
+        // FRAME SIZING UTILITY FUNCTIONS - VERSION 13
+        // Helper functions to adjust frame and artwork positioning for individual pieces
+        // ========================================
+        
+        // Function to update frame dimensions for a specific artwork by index
+        function updateFrameSize(artworkIndex, width, height) {
+            const frameContainers = document.querySelectorAll('.frame-container');
+            if (frameContainers[artworkIndex]) {
+                frameContainers[artworkIndex].style.setProperty('--frame-width', width + 'px');
+                frameContainers[artworkIndex].style.setProperty('--frame-height', height + 'px');
+            }
+        }
+
+        // Function to update artwork positioning within frame by index
+        function updateArtworkPosition(artworkIndex, top, left, width, height) {
+            const frameContainers = document.querySelectorAll('.frame-container');
+            if (frameContainers[artworkIndex]) {
+                const container = frameContainers[artworkIndex];
+                container.style.setProperty('--artwork-top', top + '%');
+                container.style.setProperty('--artwork-left', left + '%');
+                container.style.setProperty('--artwork-width', width + '%');
+                container.style.setProperty('--artwork-height', height + '%');
+            }
+        }
+
+        // Function to change frame PNG for a specific artwork
+        function updateFrameImage(artworkIndex, frameImagePath) {
+            const frameContainers = document.querySelectorAll('.frame-container');
+            if (frameContainers[artworkIndex]) {
+                const customFrame = frameContainers[artworkIndex].querySelector('.custom-frame');
+                if (customFrame) {
+                    customFrame.style.backgroundImage = `url('${frameImagePath}')`;
+                }
+            }
+        }
+
+        // NEW VERSION 13: Function to maintain artwork pixel size while changing frame size
+        function resizeFrameKeepArtwork(artworkIndex, newFrameWidth, newFrameHeight, originalArtworkWidthPercent = 70, originalArtworkHeightPercent = 70) {
+            const frameContainers = document.querySelectorAll('.frame-container');
+            if (frameContainers[artworkIndex]) {
+                const container = frameContainers[artworkIndex];
+                
+                // Get current frame dimensions (default: 400x300)
+                const currentFrameWidth = 400;
+                const currentFrameHeight = 300;
+                
+                // Calculate current artwork pixel size based on original percentages
+                const artworkPixelWidth = currentFrameWidth * (originalArtworkWidthPercent / 100);
+                const artworkPixelHeight = currentFrameHeight * (originalArtworkHeightPercent / 100);
+                
+                // Calculate new percentages to maintain same pixel size
+                const newWidthPercent = (artworkPixelWidth / newFrameWidth) * 100;
+                const newHeightPercent = (artworkPixelHeight / newFrameHeight) * 100;
+                
+                // Calculate centering positions
+                const newTopPercent = ((newFrameHeight - artworkPixelHeight) / 2) / newFrameHeight * 100;
+                const newLeftPercent = ((newFrameWidth - artworkPixelWidth) / 2) / newFrameWidth * 100;
+                
+                // Apply new frame size
+                container.style.setProperty('--frame-width', newFrameWidth + 'px');
+                container.style.setProperty('--frame-height', newFrameHeight + 'px');
+                
+                // Apply new artwork percentages (keeps same pixel size)
+                container.style.setProperty('--artwork-width', newWidthPercent + '%');
+                container.style.setProperty('--artwork-height', newHeightPercent + '%');
+                container.style.setProperty('--artwork-top', newTopPercent + '%');
+                container.style.setProperty('--artwork-left', newLeftPercent + '%');
+                
+                console.log(`Artwork ${artworkIndex}: Frame ${newFrameWidth}x${newFrameHeight}, Artwork ${artworkPixelWidth.toFixed(0)}x${artworkPixelHeight.toFixed(0)}px (${newWidthPercent.toFixed(1)}% x ${newHeightPercent.toFixed(1)}%)`);
+            }
+        }
+
+        // NEW VERSION 13: Function to resize artwork while keeping frame the same
+        function resizeArtworkKeepFrame(artworkIndex, newArtworkPixelWidth, newArtworkPixelHeight) {
+            const frameContainers = document.querySelectorAll('.frame-container');
+            if (frameContainers[artworkIndex]) {
+                const container = frameContainers[artworkIndex];
+                
+                // Get current frame dimensions from CSS variables or defaults
+                const currentFrameWidth = parseInt(container.style.getPropertyValue('--frame-width')) || 400;
+                const currentFrameHeight = parseInt(container.style.getPropertyValue('--frame-height')) || 300;
+                
+                // Calculate new percentages for the desired pixel size
+                const newWidthPercent = (newArtworkPixelWidth / currentFrameWidth) * 100;
+                const newHeightPercent = (newArtworkPixelHeight / currentFrameHeight) * 100;
+                
+                // Calculate centering positions
+                const newTopPercent = ((currentFrameHeight - newArtworkPixelHeight) / 2) / currentFrameHeight * 100;
+                const newLeftPercent = ((currentFrameWidth - newArtworkPixelWidth) / 2) / currentFrameWidth * 100;
+                
+                // Apply new artwork percentages
+                container.style.setProperty('--artwork-width', newWidthPercent + '%');
+                container.style.setProperty('--artwork-height', newHeightPercent + '%');
+                container.style.setProperty('--artwork-top', newTopPercent + '%');
+                container.style.setProperty('--artwork-left', newLeftPercent + '%');
+                
+                console.log(`Artwork ${artworkIndex}: Artwork resized to ${newArtworkPixelWidth}x${newArtworkPixelHeight}px (${newWidthPercent.toFixed(1)}% x ${newHeightPercent.toFixed(1)}%)`);
+            }
+        }
+
+        // NEW VERSION 13: Function to set both frame and artwork to exact pixel sizes
+        function setExactSizes(artworkIndex, frameWidth, frameHeight, artworkWidth, artworkHeight) {
+            const frameContainers = document.querySelectorAll('.frame-container');
+            if (frameContainers[artworkIndex]) {
+                const container = frameContainers[artworkIndex];
+                
+                // Calculate percentages for exact artwork size
+                const widthPercent = (artworkWidth / frameWidth) * 100;
+                const heightPercent = (artworkHeight / frameHeight) * 100;
+                
+                // Calculate centering positions
+                const topPercent = ((frameHeight - artworkHeight) / 2) / frameHeight * 100;
+                const leftPercent = ((frameWidth - artworkWidth) / 2) / frameWidth * 100;
+                
+                // Apply frame size
+                container.style.setProperty('--frame-width', frameWidth + 'px');
+                container.style.setProperty('--frame-height', frameHeight + 'px');
+                
+                // Apply artwork percentages
+                container.style.setProperty('--artwork-width', widthPercent + '%');
+                container.style.setProperty('--artwork-height', heightPercent + '%');
+                container.style.setProperty('--artwork-top', topPercent + '%');
+                container.style.setProperty('--artwork-left', leftPercent + '%');
+                
+                console.log(`Artwork ${artworkIndex}: Frame ${frameWidth}x${frameHeight}px, Artwork ${artworkWidth}x${artworkHeight}px`);
+            }
+        }
+
+        // Function to update responsive frame sizes
+        function updateResponsiveFrames() {
+            const frameContainers = document.querySelectorAll('.frame-container');
+            frameContainers.forEach(container => {
+                // Tablet sizes
+                container.style.setProperty('--frame-width-tablet', '350px');
+                container.style.setProperty('--frame-height-tablet', '260px');
+                // Mobile sizes  
+                container.style.setProperty('--frame-width-mobile', '320px');
+                container.style.setProperty('--frame-height-mobile', '240px');
+                // Small mobile sizes
+                container.style.setProperty('--frame-width-small', '280px');
+                container.style.setProperty('--frame-height-small', '210px');
+            });
+        }
+
+        // ========================================
+        // VERSION 13 USAGE EXAMPLES
+        // ========================================
+        
+        // EXAMPLE 1: Make frame bigger, keep artwork same pixel size
+        // resizeFrameKeepArtwork(0, 500, 400); // Frame bigger, artwork stays 280x210px
+        
+        // EXAMPLE 2: Make frame smaller, keep artwork same pixel size  
+        // resizeFrameKeepArtwork(1, 350, 270); // Frame smaller, artwork stays 280x210px
+        
+        // EXAMPLE 3: Change just artwork size, keep frame the same
+        // resizeArtworkKeepFrame(2, 250, 180); // Artwork becomes 250x180px in same frame
+        
+        // EXAMPLE 4: Set exact pixel sizes for both frame and artwork
+        // setExactSizes(0, 450, 350, 300, 220); // Frame: 450x350, Artwork: 300x220
+        
+        // EXAMPLE 5: Use different original artwork percentages
+        // resizeFrameKeepArtwork(1, 500, 400, 60, 60); // If artwork was originally 60% instead of 70%
+
+        // Call on page load to set responsive sizes
+        updateResponsiveFrames();
+        updateHeroResponsiveFrames();
+
+        // ========================================
+        // HEADER BACKGROUND ON SCROLL
+        // ========================================
+        
+        // Change header opacity based on scroll position
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
-                header.style.background = 'rgba(42, 51, 45, 0.98)';
+                header.style.background = 'rgba(42, 51, 45, 0.98)'; // More opaque when scrolled
             } else {
-                header.style.background = 'rgba(42, 51, 45, 0.95)';
+                header.style.background = 'rgba(42, 51, 45, 0.95)'; // Less opaque at top
             }
         });
 
-        // Lightbox Functions
+        // ========================================
+        // LIGHTBOX FUNCTIONS
+        // For full-screen image viewing (shows artwork without frame)
+        // ========================================
+        
+        // Open lightbox with specified image
         function openLightbox(imageSrc) {
-            document.getElementById('lightbox').style.display = 'block';
-            document.getElementById('lightbox-img').src = imageSrc;
+            document.getElementById('lightbox').style.display = 'block'; // Show lightbox
+            document.getElementById('lightbox-img').src = imageSrc; // Set image source
         }
 
+        // Close lightbox
         function closeLightbox() {
-            document.getElementById('lightbox').style.display = 'none';
+            document.getElementById('lightbox').style.display = 'none'; // Hide lightbox
+        }
+
+        // Close lightbox when pressing Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeLightbox();
+                closeArtworkModal(); // Also close artwork modal
+            }
+        });
+        
+        // ========================================
+        // GALLERY WALL PARALLAX EFFECT (OPTIONAL)
+        // Subtle movement effect for gallery background
+        // ========================================
+        
+        window.addEventListener('scroll', () => {
+            const gallery = document.querySelector('.gallery');
+            if (gallery) {
+                const scrolled = window.pageYOffset;
+                const parallax = scrolled * 0.1;
+                gallery.style.backgroundPosition = `center ${parallax}px`;
+            }
+        });
+
+        // ========================================
+        // MUSEUM PLAQUE HOVER EFFECTS
+        // ========================================
+        
+        if (!('ontouchstart' in window)) {
+            document.querySelectorAll('.museum-plaque').forEach(plaque => {
+                plaque.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                    this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.4)';
+                });
+                
+                plaque.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.3)';
+                });
+            });
         }
         
     </script>
-    
-<!-- Lightbox -->
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-    <span class="close">&times;</span>
-    <div class="lightbox-content">
-        <img id="lightbox-img" src="" alt="">
-    </div>
-</div>
     
 </body>
 </html>
