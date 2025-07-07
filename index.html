@@ -4,7 +4,7 @@
     <!-- META TAGS AND BASIC SETUP -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title> Natalia Magnusson Art Portfolio </title>
+    <title> NOMOS   Natalia Magnusson Art Portfolio </title>
     
     <!-- GOOGLE FONTS IMPORTS -->
     <!-- Preconnect for faster font loading -->
@@ -1479,6 +1479,7 @@
                 <li><a href="#studio" onclick="closeMobileMenu()">Studio</a></li>
                 <li><a href="#contact" onclick="closeMobileMenu()">Connect</a></li>
                 <li><a href="https://instagram.com/nomos.art" target="_blank" onclick="closeMobileMenu()">Instagram</a></li>
+                <li><a href="https://linkedin.com/in/nnjacob" target="_blank" onclick="closeMobileMenu()">LinkedIn</a></li>
             </ul>
             
             <!-- Mobile hamburger menu toggle -->
@@ -1524,9 +1525,9 @@
             <div class="hero-gold-frame"></div>
             <!-- White rectangular content area -->
             <div class="hero-content">
-                <h1>Art Gallery</h1>
+                <h1>Nomos Gallery</h1>
                 <div class="hero-name">Natalia Magnusson</div>
-                <p class="hero-subtitle"> Neuroscience PhD Studient & Artist </p>
+                <p class="hero-subtitle">Neuroscience PhD Student & Artist</p>
             </div>
         </div>
         <!-- Button positioned outside the frame -->
@@ -1543,6 +1544,22 @@
         <div class="gallery-container">
             <h2 class="gallery-title">Featured Works</h2>
             <div class="gallery-grid">
+
+                <!--  Magnolia View -->
+                <div class="artwork-display">
+                    <div class="frame-container" 
+                         style="--frame-width: 400px; --frame-height: 300px; --artwork-top: 16%; --artwork-left: 12%; --artwork-width: 79%; --artwork-height: 80%;"
+                         onclick="openLightbox('magnolia_view.jpeg')">
+                        <!-- Custom frame PNG for this artwork -->
+                        <div class="custom-frame" style="background-image: url('goldframe11.PNG');"></div>
+                        <!-- Artwork image positioned behind frame -->
+                        <div class="artwork-image" style="background-image: url('magnolia_view.jpeg');"></div>
+                    </div>
+                    <!-- Clickable plaque for extended info -->
+                    <div class="museum-plaque" onclick="openArtworkModal('Magnolia View')">
+                        <div class="plaque-title">Magnolia View</div>
+                    </div>
+                </div>
                 
                 <!-- Artwork 1: Allogrooming -->
                 <div class="artwork-display">
@@ -1570,7 +1587,7 @@
                         <div class="artwork-image" style="background-image: url('threat.JPEG');"></div>
                     </div>
                     <div class="museum-plaque" onclick="openArtworkModal('threat')">
-                        <div class="plaque-title">Confrontational Look</div>
+                        <div class="plaque-title">Confrontational Threat</div>
                     </div>
                 </div>
                 
@@ -1592,20 +1609,6 @@
         </div>
     </section>
 
-         <!-- Artwork 4: Magnolia View -->
-                <div class="artwork-display">
-                    <div class="frame-container" 
-                         style="--frame-width: 400px; --frame-height: 300px; --artwork-top: 15%; --artwork-left: 9%; --artwork-width: 80%; --artwork-height: 70%;"
-                         onclick="openLightbox('magnolia_view.JPEG')">
-                        <!-- Custom frame PNG for this artwork -->
-                        <div class="custom-frame" style="background-image: url('goldframe11.png');"></div>
-                        <div class="artwork-image" style="background-image: url('threat.JPEG');"></div>
-                    </div>
-                    <div class="museum-plaque" onclick="openArtworkModal('threat')">
-                        <div class="plaque-title">Confrontational Look</div>
-                    </div>
-                </div>
-
     <!-- ========================================
          ARTIST SECTION
          Biography and highlights about the artist
@@ -1619,18 +1622,14 @@
             <div>
                 <h2 class="section-title">The Artist</h2>
                 <p class="artist-bio">
-                    As both a scientist studying the brain and an artist, I've developed a deep appreciation for art and the human visual perception that shapes how we experience it. When we view art, both objective and subjective responses emerge. For me, the painting process begins with an idea that gradually takes form through added dimensions and color. Within this creative process, emotions are released into the work and its overall composition.
-Art is never created in isolation and it always has an audience. We each bring diverse backgrounds and perspectives that influence how we perceive art and the emotions and opinions we form about each piece. 
-                    Through my artwork, I hope to express my passion for human behavior, animal behavior, and our deep connection with nature. We share our world with other organisms that display complex social relationships remarkably similar to our own, and part of my artistic expression involves bringing these behavioral concepts and social dynamics to life.
-My favorite aspect of being an artist is hearing others' creative thoughts and connecting with their imaginative perspectives through these meaningful exchanges.
+                    As both a scientist studying the brain and an artist, I've developed a deep appreciation for art and the human visual perception that shapes how we experience it. When we view art, both objective and subjective responses emerge. For me, the painting process begins with an idea that gradually takes form through added dimensions and color. Within this creative process, emotions are released into the work and its overall composition. Art is never created in isolation and it always has an audience. We each bring diverse backgrounds and perspectives that influence how we perceive art and the emotions and opinions we form about each piece. Through my artwork, I hope to express my passion for human behavior, animal behavior, and our deep connection with nature. We share our world with other organisms that display complex social relationships remarkably similar to our own, and part of my artistic expression involves bringing these behavioral concepts and social dynamics to life. My favorite aspect of being an artist is hearing others' creative thoughts and connecting with their imaginative perspectives through these meaningful exchanges.
                 </p>
                 <p class="artist-bio">
-                    My work represents my interest in the rules behind human social behavior and my exploration of these behavioral patterns not only in humans, but also in other social animals. 
+                    My work represents my interest in the rules behind human social behavior and my exploration of these behavioral patterns not only in humans, but also in other social animals.
                 </p>
                 
                 <!-- Artist highlights grid - showcases different aspects -->
                 <div class="artist-highlights">
-                  
                     <div class="highlight">
                         <div class="highlight-image" style="background-image: url('paintingsuppliesacrylic.JPEG'); background-size: cover; background-position: center;" onclick="openLightbox('paintingsuppliesacrylic.JPEG')">
                         </div>
@@ -1816,20 +1815,25 @@ My favorite aspect of being an artist is hearing others' creative thoughts and c
         
         // Artwork data - you can modify these descriptions and details
         const artworkData = {
+            'Magnolia View': {
+                title: 'Magnolia View',
+                details: 'Natalia Magnusson, 2025<br>Oil pastel on geso board<br>24 × 36 inches, framed',
+                description: 'A rhesus macaque looks out a window with magnolia flowers reaching inward and trees in the distance.'
+            },
             'allogrooming': {
                 title: 'Allogrooming',
                 details: 'Natalia Magnusson, 2025<br>Oil pastel on geso board<br>7 × 10 inches, framed',
-                description: 'Depicting two rhesus macaques engaged in mutual grooming, this piece explores the intimate social bonds that define primate communities. Allogrooming serves not only as a hygiene practice but as a fundamental behavior that reinforces relationships, reduces tension, and maintains group cohesion.'
+                description: 'Depicting two rhesus macaques engaged in mutual grooming, this piece explores the intimate social bonds that define primate communities. Allogrooming serves not only as a hygiene practice but as a fundamental behavior that reinforces relationships, reduces tension, and maintains group cohesion. Through careful observation of these interactions, the artwork captures the tender yet purposeful nature of this social ritual, highlighting the complex emotional lives of our closest evolutionary relatives.'
             },
             'threat': {
                 title: 'Confrontational Threat',
                 details: 'Natalia Magnusson, 2025<br>Oil pastel on velvet paper<br>7 × 10 inches, framed',
-                description: 'A rhesus macaque eating while making intimidating direct eye contact, capturing the complex dynamics of dominance and vulnerability in primate societies. This behavioral display demonstrates how even basic activities like feeding can become charged with social meaning. The direct gaze serves as both a warning and an assertion of status, illustrating the constant negotiation of power that characterizes primate social structures.'
+                description: 'A rhesus macaque eating while making intimidating eye contact, capturing the complex dynamics of dominance and vulnerability in primate societies. This behavioral display demonstrates how even basic activities like feeding can become charged with social meaning. The direct gaze serves as both a warning and an assertion of status, illustrating the constant negotiation of power that characterizes primate social structures. The artwork explores how survival behaviors are intricately woven with social communication.'
             },
             'followinggaze': {
                 title: 'Following Gaze',
                 details: 'Natalia Magnusson, 2025<br>Oil pastel on velvet paper<br>7 × 10 inches, framed',
-                description: 'A rhesus macaque gazing upward, illustrating the importance of attention and awareness in social navigation. Gaze following is a sophisticated cognitive ability that allows primates to share attention and learn from others\' focus. This behavior forms the foundation for more complex social learning and communication. The upward gaze suggests curiosity, vigilance, and the constant environmental monitoring that is essential for survival in complex social groups.'
+                description: 'A rhesus macaque gazing upward, illustrating the importance of attention and awareness in social navigation. Gaze following is a sophisticated cognitive ability that allows primates to share attention and learn from others\' focus. This behavior forms the foundation for more complex social learning and communication. The upward gaze suggests curiosity, vigilance, and the constant environmental monitoring that is essential for survival in complex social groups. The piece captures a moment of pure attention and wonder.'
             }
         };
 
