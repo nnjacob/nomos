@@ -1545,6 +1545,22 @@
             <h2 class="gallery-title">Featured Works</h2>
             <div class="gallery-grid">
 
+                 <!--  Her Colors in The Sun -->
+                <div class="artwork-display">
+                    <div class="frame-container" 
+                         style="--frame-width: 400px; --frame-height: 300px; --artwork-top: 16%; --artwork-left: 12%; --artwork-width: 79%; --artwork-height: 80%;"
+                         onclick="openLightbox('hercolor_inthesun.jpg')">
+                        <!-- Custom frame PNG for this artwork -->
+                        <div class="custom-frame" style="background-image: url('goldframe11.png');"></div>
+                        <!-- Artwork image positioned behind frame -->
+                        <div class="artwork-image" style="background-image: url('hercolor_inthesun.jpg');"></div>
+                    </div>
+                    <!-- Clickable plaque for extended info -->
+                    <div class="museum-plaque" onclick="openArtworkModal('Her Colors in The Sun')">
+                        <div class="plaque-title">Her Colors in The Sun</div>
+                    </div>
+                </div>
+                
                 <!--  Magnolia View -->
                 <div class="artwork-display">
                     <div class="frame-container" 
@@ -1815,26 +1831,30 @@
         
         // Artwork data - you can modify these descriptions and details
         const artworkData = {
+            'Her Colors in The Sun': {
+                title: 'Her Colors in The Sun',
+                details: 'Natalia Magnusson, 2025<br> Acrylic paint on geso board<br>18 × 24 inches, not framed',
+                description: 'My painting depicts a female rhesus macaque holding green onions while gazing outward. The natural coloration of their features show variations of red and blue hues on their the skin and luminous orange tips in their fur. This painting is meant to emphasizes the visual complexity of these animals when observed up close in sunlight.'
+            },
             'Magnolia View': {
                 title: 'Magnolia View',
                 details: 'Natalia Magnusson, 2025<br>Oil pastel on geso board<br>24 × 36 inches, framed',
-                description: 'A rhesus macaque looks out a window with magnolia flowers reaching inward and trees in the distance.'
+                description: 'My painting depicts a rhesus macaque looking out a window with magnolia flowers reaching inward and trees in the distance. Through her hunched posture and relaxed eyes, I aimed to convey a peaceful mood as she admires the view before her.'
             },
             'allogrooming': {
                 title: 'Allogrooming',
                 details: 'Natalia Magnusson, 2025<br>Oil pastel on geso board<br>7 × 10 inches, framed',
-                description: 'Depicting two rhesus macaques engaged in mutual grooming, this piece explores the intimate social bonds that define primate communities. Allogrooming serves not only as a hygiene practice but as a fundamental behavior that reinforces relationships, reduces tension, and maintains group cohesion.'
+                description: 'My painting depicts one of my favorite behaviors to observe: Grooming. The extensive time rhesus macaques spend grooming goes beyond cleanliness. Allogrooming serves not only as a hygienic practice but as a fundamental behavior that reinforces relationships, reduces tension, and maintains group cohesion.'
             },
             'threat': {
                 title: 'Confrontational Threat',
                 details: 'Natalia Magnusson, 2025<br>Oil pastel on velvet paper<br>7 × 10 inches, framed',
-                description: 'A rhesus macaque eating while making intimidating eye contact, capturing the complex dynamics of dominance and vulnerability in primate societies. This behavioral display demonstrates how even basic activities like feeding can become charged with social meaning.'
+                description: 'My painting depicts a rhesus macaque eating while making direct eye contact. In the world of macaques, direct eye contact is an intentional threat toward whoever they are looking at. Even the slightly ajar mouth is purposeful toward the viewer and preparatory for action. Food is a valuable resource, and access to it depends heavily on social rank among conspecifics. I also depicted their cheek pouches in this painting, which serve as a food storage method where they can save snacks for later.'
             },
             'followinggaze': {
                 title: 'Following Gaze',
                 details: 'Natalia Magnusson, 2025<br>Oil pastel on velvet paper<br>7 × 10 inches, framed',
-                description: 'A rhesus macaque gazing upward, illustrating the importance of attention and awareness in social navigation. Gaze following is a sophisticated cognitive ability that allows primates to share attention and learn from others.'
-            }
+                description: 'My painting depicts a rhesus macaque gazing upward. This piece served as practice for capturing facial details and illustrating their multicolored fur patterns.' 
         };
 
         // Open artwork modal with specific artwork data
